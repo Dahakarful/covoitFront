@@ -20,6 +20,6 @@ myapp.config(function($stateProvider){
 //       templateUrl: '../html/find.html'
 //   };
     
-    $stateProvider.state(beersState);
+    $stateProvider.state(uilisateurState);
 //    $stateProvider.state(addState);
 });
