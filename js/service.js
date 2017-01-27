@@ -5,16 +5,15 @@ myapp.factory('utilisateurFactory', function($http){
     return{
         getUtilisateur: function(){
             return $http.get(baseUrl);
+        },
+        addUtilisateur: function(nom, prenom, email){
+            return $http({
+                method: 'POST',
+                url: baseUrl,
+                data: 'nom='+nom+'&prenom='+prenom'&email='+email,
+                headers: {'Content-type': 'application/x-www-form-urlencoded'}
+            });
         }
-//        ,
-//        addBeers: function(name, alcohol){
-//            return $http({
-//                method: 'POST',
-//                url: baseUrl,
-//                data: 'name='+name+'&alcohol='+alcohol,
-//                headers: {'Content-type': 'application/x-www-form-urlencoded'}
-//            });
-//        },
 //        deleteBeers: function(id){
 //            return $http({
 //                method: 'DELETE',

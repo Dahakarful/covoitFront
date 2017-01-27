@@ -19,6 +19,15 @@ myapp.controller('utilisateurController', function($scope, utilisateurFactory){
         })
     };
     
+    $scope.submit = function(){
+        utilisateurFactory.addUtilisateur($scope.nom, $scope.prenom, $scope.email)
+            .then(function succes(response){
+                console.log("Success called !");
+        }, function error(response){
+            console.log("Error called !");
+        });
+    };
+    
 //    $scope.delete = function(id){
 //        beersFactory.deleteBeers(id)
 //        .then(function succes(response){

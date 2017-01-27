@@ -1,7 +1,9 @@
 <div>
-    <h1>Utilsateur</h1>
-    <div ng-if="error">{{error}}</div>
-    <ul ng-show="utilisateur.length!=0">
-        Nom: {{utilisateur.nom}} - Prénom: {{utilisateur.prenom}}
-    </div>
+    <h1>S'enregistrer</h1>
+    <form ng-submit="submit()">
+        <input type="text" ng-model="nom" name="text" placeholder="Nom"/>
+        <input type="text" ng-model="prenom" name="text" placeholder="Prénom"/>
+        <input type="text" ng-model="email" name="text" plcaholder="E-mail"/>
+        <input type="submit" id="submit" value="Submit"/>
+    </form>
 </div>
