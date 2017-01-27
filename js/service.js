@@ -1,6 +1,6 @@
 myapp.factory('utilisateurFactory', function($http){
    
-    var baseUrl="http://utilisateur.cleverapps.io/utilisateur";
+    var baseUrl="http://utilisateur.cleverapps.io/accueil";
     
     return{
         getUtilisateur: function(){
