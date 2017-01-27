@@ -2,7 +2,6 @@ myapp.controller('utilisateurController', function($scope, utilisateurFactory){
     
     $scope.utilisateur = [];
     $scope.error = null;
-    console.log($scope.beers);
     
     var getUtilisateur = function(){
         utilisateurFactory.getUtilisateur()
@@ -23,6 +22,7 @@ myapp.controller('utilisateurController', function($scope, utilisateurFactory){
         utilisateurFactory.addUtilisateur($scope.nom, $scope.prenom, $scope.email)
             .then(function succes(response){
                 console.log("Success called !");
+            //redirect
         }, function error(response){
             console.log("Error called !");
         });
