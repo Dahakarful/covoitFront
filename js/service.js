@@ -13,16 +13,15 @@ myapp.factory('utilisateurFactory', function($http){
                 url: baseUrl+'/senregistrer',
                 data: 'nom='+nom+'&prenom='+prenom+'&email='+email+'&motDePasse='+motDePasse,
                 headers: {'Content-type': 'application/x-www-form-urlencoded'}
-                //authorization + token
             });
         },
-        connexion: function(email, motDePasse){
+        connexion: function(email, motDePasse, token){
             return $http({
-                method: 'GET',
+                method: 'POST',
                 url: baseUrl+'/connexion',
-                data: 'email='+email,
+                data: 'email='+email+'motDePasse='+motDePasse,
                 headers: {'Content-type': 'application/x-www-form-urlencoded',
-                         'Authorization': motDePasse}
+                         'Authorization': token}
             })
         }
     }

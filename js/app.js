@@ -1,7 +1,8 @@
 var myapp = angular.module('covoitVoiture', [
     'ui.router',
     'ngMaterial',
-    'ngMessages'
+    'ngMessages',
+    'ngCookies'
 ]);
 
 myapp.config(

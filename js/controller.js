@@ -1,19 +1,25 @@
-myapp.controller('utilisateurController', function($scope, utilisateurFactory, $state, $mdToast){
+myapp.controller('utilisateurController', function($scope, utilisateurFactory, $state, $mdToast, $cookies){
     
     $scope.goSignup = function(){
         $state.go('senregistrer');
     };
     
     $scope.connexion = function() {
-        utilisateurFactory.connexion($scope.email, $scope.motDePasse)
-            .then(function success(){
+        var token = $cookies.get('token');
+        console.log(token);
+        token = "jnlk";
+        utilisateurFactory.connexion($scope.email, $scope.motDePasse, token)
+            .then(function success(data){
+                console.log(data);
                 $mdToast.show(
                   $mdToast.simple()
                     .textContent('Connecté !')
                     .position('bottom')
                     .hideDelay(3000)
                 );
-        }, function(){
+        }, function error(res){
+            console.log(res.json);
+            console.log(res);
                 $mdToast.show(
                   $mdToast.simple()
                     .textContent('Non autorisé !')
