@@ -1,9 +1,25 @@
-<div>
-    <h1>S'enregistrer</h1>
-    <form ng-submit="submit()">
-        <input type="text" ng-model="nom" name="text" placeholder="Nom"/>
-        <input type="text" ng-model="prenom" name="text" placeholder="Prénom"/>
-        <input type="text" ng-model="email" name="text" plcaholder="E-mail"/>
-        <input type="submit" id="submit" value="Submit"/>
-    </form>
+<div class="demo-card-square mdl-card mdl-shadow--2dp centerAccueil">
+  <div class="mdl-card__title mdl-card--expand">
+    <h2 class="mdl-card__title-text">Se connecter</h2>
+  </div>
+  <div class="mdl-card__supporting-text">
+      <div class="mdl-textfield mdl-js-textfield">
+        <input class="mdl-textfield__input" type="text" ng-model="email">
+        <label class="mdl-textfield__label" for="sample1">Email</label>
+      </div>
+      <div class="mdl-textfield mdl-js-textfield">
+        <input class="mdl-textfield__input" type="password" ng-model="motDePasse">
+        <label class="mdl-textfield__label" for="sample1">Mot de passe</label>
+      </div>
+  </div>
+      <div class="mdl-card__actions mdl-card--border">
+        <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" ng-click="connexion()">
+          Connexion
+        </a>
+      </div>
+  <div class="mdl-card__actions mdl-card--border">
+    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" ng-click="goSignup()">
+      S'enregistrer
+    </a>
+  </div>
 </div>

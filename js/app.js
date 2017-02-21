@@ -1,4 +1,8 @@
-var myapp = angular.module('covoitVoiture', ['ui.router']);
+var myapp = angular.module('covoitVoiture', [
+    'ui.router',
+    'ngMaterial',
+    'ngMessages'
+]);
 
 myapp.config(
     function($stateProvider, $urlRouterProvider){
@@ -16,20 +20,23 @@ myapp.config(
        controller: 'utilisateurController',
        templateUrl: '../html/accueil.html'
    };
-//   var addState = {
-//       name: 'add',
-//       url: '/add',
-//       controller: 'addController',
-//       templateUrl: '../html/add.html'
-//   };
-//    var findState = {
-//       name: 'find',
-//       url: '/find',
-//       controller: 'findController',
-//       templateUrl: '../html/find.html'
-//   };
-            $stateProvider.state(defaultState);
-            $stateProvider.state(uilisateurState);
-    
-//    $stateProvider.state(addState);
+    var senregistrerState = {
+        name: 'senregistrer',
+        url: '/senregistrer',
+        controller: 'senregistrerController',
+        templateUrl: '../html/senregistrer.html',
+        data: {
+              css: '../css/senregistrer.css'
+        }
+    };
+    var annonceState = {
+        name: 'annonce',
+        url: '/annonce',
+        controller: 'annonceController',
+        templateUrl: '../html/annonce.html',
+    };
+        $stateProvider.state(defaultState);
+        $stateProvider.state(uilisateurState);
+        $stateProvider.state(senregistrerState);
+        $stateProvider.state(annonceState);
 });

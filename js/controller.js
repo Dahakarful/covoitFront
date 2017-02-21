@@ -1,45 +1,46 @@
-myapp.controller('utilisateurController', function($scope, utilisateurFactory){
+myapp.controller('utilisateurController', function($scope, utilisateurFactory, $state, $mdToast){
     
-    $scope.utilisateur = [];
-    $scope.error = null;
-    
-    var getUtilisateur = function(){
-        utilisateurFactory.getUtilisateur()
-            .then(function succes(response){
-                console.log("Success called !");
-                if(response.status == 200){
-                    $scope.beers = response.data;
-                }else{
-                    $scope.error = 'Error happened'+response.status;
-                }
-            }, function error(response){
-                console.log("Error called !");
-                $scope.error = 'Error happened'+response.status;
-        })
+    $scope.goSignup = function(){
+        $state.go('senregistrer');
     };
     
-    $scope.submit = function(){
-        utilisateurFactory.addUtilisateur($scope.nom, $scope.prenom, $scope.email)
+    $scope.connexion = function() {
+        utilisateurFactory.connexion($scope.email, $scope.motDePasse)
+            .then(function success(){
+                $mdToast.show(
+                  $mdToast.simple()
+                    .textContent('Connecté !')
+                    .position('bottom')
+                    .hideDelay(3000)
+                );
+        }, function(){
+                $mdToast.show(
+                  $mdToast.simple()
+                    .textContent('Non autorisé !')
+                    .position('bottom')
+                    .hideDelay(3000)
+                );
+        });
+    }
+});
+
+myapp.controller('senregistrerController', function($scope, utilisateurFactory, $state, $mdToast){
+    
+    $scope.senregistrer = function(){
+        utilisateurFactory.addUtilisateur($scope.nom, $scope.prenom, $scope.email, $scope.motDePasse)
             .then(function succes(response){
                 console.log("Success called !");
-            //redirect
+                $scope.home();
         }, function error(response){
             console.log("Error called !");
         });
-    };
+    }
     
-//    $scope.delete = function(id){
-//        beersFactory.deleteBeers(id)
-//        .then(function succes(response){
-//                console.log("Success called !");
-//                getBeers();
-//        }, function error(response){
-//            console.log("Error called !");
-//        });
-//    };
-//    
-//    getBeers();
+    $scope.home = function(){
+        $state.go("defaultState");
+    }
 });
+
 
 //myapp.controller('addController', function($scope, beersFactory){
 //    
