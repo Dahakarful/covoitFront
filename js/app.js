@@ -30,14 +30,14 @@ myapp.config(
               css: '../css/senregistrer.css'
         }
     };
-    var annonceState = {
-        name: 'annonce',
-        url: '/annonce',
-        controller: 'annonceController',
-        templateUrl: '../html/annonce.html',
+    var annoncesState = {
+        name: 'annonces',
+        url: '/annonces',
+        controller: 'annoncesController',
+        templateUrl: '../html/annonces.html',
     };
         $stateProvider.state(defaultState);
         $stateProvider.state(uilisateurState);
         $stateProvider.state(senregistrerState);
-        $stateProvider.state(annonceState);
+        $stateProvider.state(annoncesState);
 });
