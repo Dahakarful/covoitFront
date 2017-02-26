@@ -10,13 +10,15 @@
         <!-- Liste des annonces ajoutées -->
           <md-list flex onload="listAnnonces()">
             <md-subheader class="md-no-sticky">Annonces récentes</md-subheader>
+            <md-divider ></md-divider>
             <md-list-item class="md-3-line" ng-repeat="annonce in annonces track by $index" ng-click="null">
               <img ng-src="../images/avatar.png" class="md-avatar"/>
               <div class="md-list-item-text" layout="column">
                 <h3>{{annonce.proprietaire.prenom}} {{annonce.proprietaire.nom}}</h3>
-                <h4>{{annonce.villeDepart}}</h4>
-                <p>{{annonce.villeArrivee}}</p>
+                <h4>{{annonce.villeDepart}} -> {{annonce.villeArrivee}}</h4>
+                <p>{{annonce.dateDepart}}</p>
               </div>
+              <md-button class="md-raised" ng-click="reserver(annonce)">Réserver</md-button>
             </md-list-item>
             <md-divider ></md-divider>
           </md-list>

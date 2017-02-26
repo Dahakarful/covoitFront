@@ -135,6 +135,16 @@ myapp.controller('annoncesController', function(annoncesFactory, utilisateurFact
     };
     
     $scope.listAnnonces();
+    
+    $scope.reserver = function(annonce){
+        var email = $cookies.get('email');
+        annoncesFactory.reserver(annonce, email)
+            .then(function success(response){
+                console.log(response);
+        }, function error(response){
+            console.log(response);
+        });
+    };
 });
 //--------------------------------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------------------------------
