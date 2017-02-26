@@ -8,25 +8,26 @@
         </md-toolbar>
         
         <!-- Liste des annonces ajoutées -->
-          <md-list flex>
+          <md-list flex onload="listAnnonces()">
             <md-subheader class="md-no-sticky">Annonces récentes</md-subheader>
-            <md-list-item class="md-3-line" ng-repeat="item in todos" ng-click="null">
-              <img ng-src="{{item.face}}?{{$index}}" class="md-avatar" alt="{{item.who}}" />
+            <md-list-item class="md-3-line" ng-repeat="annonce in annonces track by $index" ng-click="null">
+              <img ng-src="../images/avatar.png" class="md-avatar"/>
               <div class="md-list-item-text" layout="column">
-                <h3>{{ item.who }}</h3>
-                <h4>{{ item.what }}</h4>
-                <p>{{ item.notes }}</p>
+                <h3>{{annonce.proprietaire.prenom}} {{annonce.proprietaire.nom}}</h3>
+                <h4>{{annonce.villeDepart}}</h4>
+                <p>{{annonce.villeArrivee}}</p>
               </div>
             </md-list-item>
             <md-divider ></md-divider>
           </md-list>
         
         <!-- Bouton ajouter une annocne -->
-        <div class="lock-size" layout="row" layout-align="end end">
-            <md-button class="md-fab" md-direction="right" aria-label="Ajouter annonce" ng-click="ajouterAnnonce()">
-              <md-icon md-svg-icon="../images/ic_add_white_24px.svg"></md-icon>
-            </md-button>
-        </div>
+        <md-button class="md-fab md-fab-bottom-right" style="position:fixed;" aria-label="Ajouter annonce" ng-click="formulaireAnnonce()">
+          <md-icon md-svg-icon="../images/ic_add_white_24px.svg"></md-icon>
+          <md-tooltip md-direction ="left">
+              Ajouter une annonce
+            </md-tooltip>
+        </md-button>
     </md-content>
 </div>
 

@@ -2,7 +2,8 @@ var myapp = angular.module('covoitVoiture', [
     'ui.router',
     'ngMaterial',
     'ngMessages',
-    'ngCookies'
+    'ngCookies',
+    'ngAria'
 ]);
 
 myapp.config(
@@ -36,8 +37,15 @@ myapp.config(
         controller: 'annoncesController',
         templateUrl: '../html/annonces.html',
     };
+    var formulaireAnnonceState = {
+        name: 'formulaireAnnonce',
+        url: '/formulaireAnnonce',
+        controller: 'annoncesController',
+        templateUrl: '../html/formulaireAnnonce.html'
+    };
         $stateProvider.state(defaultState);
         $stateProvider.state(uilisateurState);
         $stateProvider.state(senregistrerState);
         $stateProvider.state(annoncesState);
+        $stateProvider.state(formulaireAnnonceState);
 });

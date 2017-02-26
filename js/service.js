@@ -4,8 +4,13 @@ myapp.factory('utilisateurFactory', function($http){
     var baseUrl="http://localhost:8081";
     
     return{
-        getUtilisateur: function(){
-            return $http.get(baseUrl);
+        getUtilisateur: function(email){
+            return $http({
+                method: 'POST',
+                url: baseUrl + '/utilisateur',
+                data: 'email=' + email,
+                headers: {'Content-type': 'application/x-www-form-urlencoded'}
+            });
         },
         addUtilisateur: function(nom, prenom, email, motDePasse){
             return $http({
@@ -30,7 +35,7 @@ myapp.factory('utilisateurFactory', function($http){
 
 myapp.factory('annoncesFactory', function($http){
     
-    var baseUrl = "http://localhost:8081";
+    var baseUrl = "http://localhost:8083";
     
     return{
         verifierConnexion: function(token){
@@ -39,6 +44,22 @@ myapp.factory('annoncesFactory', function($http){
                 url: baseUrl + '/verifierConnexion',
                 headers: {'Content-type': 'application/x-www-form-urlencoded',
                          'Authorization': token}
+            });
+        },
+        ajouterAnnonce: function(email, villeDepart, villeArrivee, nbPlaces, prix, dateDepart){
+            return $http({
+                method: 'POST',
+                url: baseUrl + '/ajouterAnnonce',
+                headers: {'Content-type': 'application/x-www-form-urlencoded'},
+                data: 'proprietaire=' + email + '&villeDepart=' + villeDepart + '&villeArrivee=' + villeArrivee +
+                    '&nbPlaces=' + nbPlaces + '&prix=' + prix + '&dateDepart=' + dateDepart
+            });
+        },
+        listAnnonces: function(){
+            return $http({
+                method: 'GET',
+                url: baseUrl + '/listAnnonces',
+                headers: {'Content-type': 'application/x-www-form-urlencoded'}
             });
         }
     }
