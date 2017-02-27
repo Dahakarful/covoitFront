@@ -15,8 +15,8 @@
               <img ng-src="../images/avatar.png" class="md-avatar"/>
               <div class="md-list-item-text" layout="column">
                 <h3>{{annonce.proprietaire.prenom}} {{annonce.proprietaire.nom}}</h3>
-                <h4>{{annonce.villeDepart}} -> {{annonce.villeArrivee}}</h4>
-                <p>{{annonce.dateDepart}}</p>
+                  <h4>{{annonce.villeDepart}} -> {{annonce.villeArrivee}} <strong>{{annonce.nbPlaces}} places</strong></h4>
+                <h3>Date de départ: {{annonce.dateDepart}}</h3>
               </div>
               <md-button class="md-raised" ng-click="reserver(annonce)">Réserver</md-button>
             </md-list-item>

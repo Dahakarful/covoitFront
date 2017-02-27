@@ -1,7 +1,7 @@
 myapp.factory('utilisateurFactory', function($http){
    
-    var baseUrl="http://covoitUtilisateurs.cleverapps.io/";
-//    var baseUrl="http://localhost:8081";
+//    var baseUrl="http://covoitUtilisateurs.cleverapps.io/";
+    var baseUrl="http://localhost:8081";
     
     return{
         getUtilisateur: function(email){
@@ -35,8 +35,8 @@ myapp.factory('utilisateurFactory', function($http){
 
 myapp.factory('annoncesFactory', function($http){
     
-    var baseUrl="http://covoitAnnonces.cleverapps.io/";
-//    var baseUrl = "http://localhost:8083";
+//    var baseUrl="http://covoitAnnonces.cleverapps.io/";
+    var baseUrl = "http://localhost:8083";
     
     return{
         verifierConnexion: function(token){
@@ -64,7 +64,6 @@ myapp.factory('annoncesFactory', function($http){
             });
         },
         reserver: function(annonce, email){
-            console.log(annonce);
             return $http({
                 method: 'POST',
                 url: baseUrl + '/reserver',
